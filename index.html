@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmed Badr | Front-End Angular Developer</title>
+  <meta name="description" content="Ahmed Badr Mostafa — Creative Front-End Angular Developer building responsive, scalable web applications. Based in Cairo, Egypt." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── SITE BACKGROUND EFFECTS ── -->
+  <canvas id="particles-canvas"></canvas>
+  <div class="site-bg">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="logo">&lt;Ahmed /&gt;</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact" class="btn-nav">Hire Me</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-content" id="hero-content">
+      <div class="badge" id="hero-badge">
+        <span class="badge-dot"></span>Available for Opportunities
+      </div>
+      <h1 id="hero-title">Ahmed Badr <span class="grad">Mostafa</span></h1>
+      <div class="typewriter-wrap" id="hero-type">
+        <span class="static">I build </span>
+        <span id="typed-target"></span>
+      </div>
+      <p class="hero-sub" id="hero-sub">Front-End Angular Developer crafting responsive, scalable web applications with Angular, TypeScript &amp; RxJS. Based in Cairo, Egypt.</p>
+      <div class="hero-cta" id="hero-cta">
+        <a href="#projects" class="btn-primary magnetic">View My Work</a>
+        <a href="Ahmed-Badr-CV.pdf" target="_blank" class="btn-outline magnetic">Download CV</a>
+      </div>
+      <div class="hero-socials" id="hero-socials">
+        <a href="mailto:ahmed.badr.mostafaa@gmail.com" class="social-icon magnetic" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/ahmed-badr-front-end/" target="_blank" class="social-icon magnetic" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://github.com/Ahmedbadara12" target="_blank" class="social-icon magnetic" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-label" data-aos="fade-up">01 — About Me</div>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Crafting Digital <span class="grad">Experiences</span></h2>
+      <div class="about-grid">
+        <div class="about-card glass" data-aos="fade-right" data-aos-delay="150">
+          <p>Creative and detail-oriented Front-End Angular Developer with hands-on experience building <strong>responsive, scalable web applications</strong> for ERP and digital learning platforms.</p>
+          <p>Strong background in Angular, TypeScript, RxJS, state management, and reusable component architecture, with a focus on <strong>performance, accessibility, and clean user-centered interfaces</strong>.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num counter" data-target="2" data-suffix="+">0</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num counter" data-target="5" data-suffix="+">0</span>
+              <span class="stat-label">Projects Delivered</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num counter" data-target="20" data-suffix="%">0</span>
+              <span class="stat-label">Dev Time Saved</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-info glass" data-aos="fade-left" data-aos-delay="200">
+          <h3>Quick Info</h3>
+          <ul class="info-list">
+            <li data-aos="fade-left" data-aos-delay="250"><span class="info-icon">📍</span><span>Cairo, Egypt</span></li>
+            <li data-aos="fade-left" data-aos-delay="300"><span class="info-icon">📞</span><span>(+20) 1554357738</span></li>
+            <li data-aos="fade-left" data-aos-delay="350"><span class="info-icon">✉️</span><span>ahmed.badr.mostafaa@gmail.com</span></li>
+            <li data-aos="fade-left" data-aos-delay="400"><span class="info-icon">🎓</span><span>BSc Computer Science — Thebes Academy</span></li>
+            <li data-aos="fade-left" data-aos-delay="450"><span class="info-icon">🚀</span><span>Open to new opportunities</span></li>
+          </ul>
+          <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+            <a href="#contact" class="btn-primary magnetic" data-aos="zoom-in" data-aos-delay="500">Contact Me</a>
+            <a href="Ahmed-Badr-CV.pdf" target="_blank" class="btn-outline magnetic" data-aos="zoom-in" data-aos-delay="600">Download CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills" class="section section-dark">
+    <div class="container">
+      <div class="section-label" data-aos="fade-up">02 — Skills</div>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">My <span class="grad">Tech Stack</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card glass tilt-card" data-aos="zoom-in-up" data-aos-delay="0">
+          <div class="skill-icon">⚡</div>
+          <h3>Frameworks &amp; Languages</h3>
+          <div class="tags">
+            <span class="tag">Angular v17+</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">RxJS</span>
+            <span class="tag">NgRx</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+          </div>
+        </div>
+        <div class="skill-card glass tilt-card" data-aos="zoom-in-up" data-aos-delay="100">
+          <div class="skill-icon">🧩</div>
+          <h3>UI &amp; Component Libraries</h3>
+          <div class="tags">
+            <span class="tag">PrimeNG</span>
+            <span class="tag">Reusable Components</span>
+            <span class="tag">Responsive UI</span>
+            <span class="tag">Accessible Design</span>
+          </div>
+        </div>
+        <div class="skill-card glass tilt-card" data-aos="zoom-in-up" data-aos-delay="200">
+          <div class="skill-icon">🔗</div>
+          <h3>Architecture &amp; Integration</h3>
+          <div class="tags">
+            <span class="tag">REST API</span>
+            <span class="tag">Lazy Loading</span>
+            <span class="tag">Route Guards</span>
+            <span class="tag">RxJS Interceptors</span>
+            <span class="tag">Modular Architecture</span>
+          </div>
+        </div>
+        <div class="skill-card glass tilt-card" data-aos="zoom-in-up" data-aos-delay="300">
+          <div class="skill-icon">🛠️</div>
+          <h3>Dev Tools &amp; Practices</h3>
+          <div class="tags">
+            <span class="tag">Git / GitHub</span>
+            <span class="tag">Unit Testing</span>
+            <span class="tag">Linting</span>
+            <span class="tag">Performance Optimization</span>
+            <span class="tag">SEO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-label" data-aos="fade-up">03 — Experience</div>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Work <span class="grad">History</span></h2>
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="150">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass">
+            <div class="tl-header">
+              <div>
+                <h3>Front-End Developer</h3>
+                <span class="company">UMAMI E-Learning Solutions</span>
+              </div>
+              <span class="period">2026 — Present</span>
+            </div>
+            <ul class="tl-list">
+              <li>Build and enhance responsive web interfaces for digital learning solutions, supporting engaging and user-friendly experiences.</li>
+              <li>Develop reusable Angular components and front-end flows that improve maintainability, consistency, and delivery speed across modules.</li>
+              <li>Collaborate with design and cross-functional teams to translate learning-product requirements into accessible, high-impact UI implementations.</li>
+              <li>Contribute to performance-focused front-end development using modern Angular practices, clean architecture, and API-driven integration.</li>
+            </ul>
+            <div class="tl-tags">
+              <span class="tag-sm">Angular</span><span class="tag-sm">TypeScript</span><span class="tag-sm">RxJS</span><span class="tag-sm">LMS</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="250">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass">
+            <div class="tl-header">
+              <div>
+                <h3>Front-End Developer</h3>
+                <span class="company">Smartly Techs</span>
+              </div>
+              <span class="period">Sep 2024 — 2026</span>
+            </div>
+            <ul class="tl-list">
+              <li>Led development of a modular Angular 17 ERP system covering Finance, HR, and Logistics modules using TypeScript, PrimeNG, and NgRx.</li>
+              <li>Reduced development time by ~20% through reusable components, shared patterns, and clean front-end architecture.</li>
+              <li>Integrated RESTful APIs with RxJS interceptors and implemented route guards and lazy loading for improved reliability and load performance.</li>
+              <li>Improved maintainability through Git/GitHub workflows, linting, and unit testing, reducing recurring bugs.</li>
+            </ul>
+            <div class="tl-tags">
+              <span class="tag-sm">Angular 17</span><span class="tag-sm">NgRx</span><span class="tag-sm">PrimeNG</span><span class="tag-sm">ERP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects" class="section section-dark">
+    <div class="container">
+      <div class="section-label" data-aos="fade-up">04 — Projects</div>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Featured <span class="grad">Work</span></h2>
+      <div class="projects-grid">
+
+        <div class="project-card glass tilt-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="project-number">01</div>
+          <div class="project-badge">Enterprise</div>
+          <h3>ERP Platform</h3>
+          <p>Scalable ERP web application for Finance, HR, and Logistics workflows using Angular 17, NgRx, PrimeNG, and TypeScript. Applied lazy loading, reusable dashboards, and modular UI patterns.</p>
+          <div class="project-tags">
+            <span class="tag-sm">Angular 17</span><span class="tag-sm">NgRx</span><span class="tag-sm">PrimeNG</span><span class="tag-sm">TypeScript</span>
+          </div>
+        </div>
+
+        <div class="project-card glass tilt-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="project-number">02</div>
+          <div class="project-badge">Public Sector</div>
+          <h3>Egyptian Football Association</h3>
+          <p>Enhanced responsiveness, layout consistency, and visual alignment for efa.com.eg. Optimized HTML, CSS, and JavaScript for better loading speed and stronger SEO readiness.</p>
+          <div class="project-tags">
+            <span class="tag-sm">HTML/CSS</span><span class="tag-sm">JavaScript</span><span class="tag-sm">SEO</span><span class="tag-sm">Responsive</span>
+          </div>
+          <a href="https://efa.com.eg" target="_blank" class="project-link">Visit Site →</a>
+        </div>
+
+        <div class="project-card glass tilt-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="project-number">03</div>
+          <div class="project-badge">Media</div>
+          <h3>Eldar News Portal</h3>
+          <p>Dynamic news publishing interface with HTML, CSS, and JavaScript, focusing on accessibility and cross-browser compatibility. Implemented responsive layouts and SEO-friendly structure.</p>
+          <div class="project-tags">
+            <span class="tag-sm">HTML</span><span class="tag-sm">CSS</span><span class="tag-sm">JavaScript</span><span class="tag-sm">Accessibility</span>
+          </div>
+        </div>
+
+        <div class="project-card glass tilt-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="project-number">04</div>
+          <div class="project-badge">EdTech</div>
+          <h3>LMS Platform</h3>
+          <p>Responsive Learning Management System using Angular for course browsing, enrollment, lesson delivery, and progress tracking. Modular UI with role-based screens.</p>
+          <div class="project-tags">
+            <span class="tag-sm">Angular</span><span class="tag-sm">REST API</span><span class="tag-sm">Role-based</span><span class="tag-sm">Responsive</span>
+          </div>
+        </div>
+
+        <div class="project-card glass tilt-card" data-aos="fade-up" data-aos-delay="320">
+          <div class="project-number">05</div>
+          <div class="project-badge">Admin</div>
+          <h3>LMS User Management Console</h3>
+          <p>Administrative console for managing learners, instructors, roles, permissions, and user lifecycle within the LMS. Dashboards for account control and access assignment.</p>
+          <div class="project-tags">
+            <span class="tag-sm">Angular</span><span class="tag-sm">Dashboards</span><span class="tag-sm">Admin Panel</span><span class="tag-sm">Permissions</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ── -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-label" data-aos="fade-up">05 — Education</div>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Academic <span class="grad">Background</span></h2>
+      <div class="edu-card glass" data-aos="zoom-in" data-aos-delay="200">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-info">
+          <h3>Bachelor of Computer Science</h3>
+          <span class="company">Thebes Academy · Cairo, Egypt</span>
+          <span class="period">September 2018 — August 2022</span>
+          <ul class="tl-list">
+            <li>Specialized in Software Engineering and Web Technologies.</li>
+            <li>Built academic projects using HTML5, CSS3, JavaScript, and Angular, establishing a strong foundation in responsive UI development and API integration.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="section section-dark">
+    <div class="container contact-container">
+      <div class="section-label" data-aos="fade-up">06 — Contact</div>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Let's <span class="grad">Work Together</span></h2>
+      <p class="contact-sub" data-aos="fade-up" data-aos-delay="150">Have a project in mind or want to discuss opportunities? I'd love to hear from you.</p>
+      <div class="contact-grid">
+        <div class="contact-info glass" data-aos="fade-right" data-aos-delay="200">
+          <h3>Get in Touch</h3>
+          <div class="contact-items">
+            <a href="mailto:ahmed.badr.mostafaa@gmail.com" class="contact-item">
+              <div class="c-icon">✉️</div>
+              <div><strong>Email</strong><br/><span>ahmed.badr.mostafaa@gmail.com</span></div>
+            </a>
+            <a href="tel:+201554357738" class="contact-item">
+              <div class="c-icon">📞</div>
+              <div><strong>Phone</strong><br/><span>(+20) 1554357738</span></div>
+            </a>
+            <div class="contact-item">
+              <div class="c-icon">📍</div>
+              <div><strong>Location</strong><br/><span>Cairo, Egypt</span></div>
+            </div>
+          </div>
+          <div class="social-row">
+            <a href="https://www.linkedin.com/in/ahmed-badr-front-end/" target="_blank" class="social-btn magnetic">LinkedIn</a>
+            <a href="https://github.com/Ahmedbadara12" target="_blank" class="social-btn magnetic">GitHub</a>
+          </div>
+        </div>
+        <form class="contact-form glass" id="contactForm" data-aos="fade-left" data-aos-delay="200">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="jane@company.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Project discussion..." />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary magnetic" style="width:100%">Send Message 🚀</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer data-aos="fade-up">
+    <div class="container">
+      <p class="footer-text">Designed &amp; built by <span class="grad">Ahmed Badr Mostafa</span> · 2026</p>
+      <p class="footer-sub">Front-End Angular Developer · Cairo, Egypt</p>
+    </div>
+  </footer>
+
+  <!-- CDN Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
