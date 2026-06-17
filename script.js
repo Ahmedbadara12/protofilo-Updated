@@ -1,13 +1,21 @@
 /* ── WAIT FOR LIBS ── */
 window.addEventListener('load', () => {
+  const hasAOS = typeof AOS !== 'undefined';
+  const hasGSAP = typeof gsap !== 'undefined';
+  const hasTyped = typeof Typed !== 'undefined';
+  const hasTilt = typeof VanillaTilt !== 'undefined';
 
   /* ─── AOS Init ─── */
-  document.body.classList.add('aos-ready');
-  AOS.init({ duration: 750, easing: 'ease-out-cubic', once: true, offset: 60, disable: false });
-  AOS.refresh();
+  if (hasAOS) {
+    document.body.classList.add('aos-ready');
+    AOS.init({ duration: 750, easing: 'ease-out-cubic', once: true, offset: 60, disable: false });
+    AOS.refresh();
+  }
 
   /* ─── GSAP Register ─── */
-  gsap.registerPlugin(ScrollTrigger);
+  if (hasGSAP && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
   /* ─── CUSTOM CURSOR ─── */
   const cursor = document.getElementById('cursor');
@@ -124,32 +132,40 @@ window.addEventListener('load', () => {
   animateParticles();
 
   /* ─── GSAP HERO ENTRANCE ─── */
-  const heroTl = gsap.timeline({ delay: 0.2 });
-  heroTl
-    .to('#hero-content', { opacity: 1, duration: 0 })
-    .from('#hero-badge',  { opacity: 0, y: -30, duration: .6, ease: 'back.out(1.7)' })
-    .from('#hero-title',  { opacity: 0, y: 60, duration: .8, ease: 'power3.out' }, '-=.2')
-    .from('#hero-type',   { opacity: 0, y: 30, duration: .6, ease: 'power2.out' }, '-=.4')
-    .from('#hero-sub',    { opacity: 0, y: 20, duration: .6, ease: 'power2.out' }, '-=.35')
-    .from('#hero-cta',    { opacity: 0, y: 20, duration: .5, ease: 'power2.out' }, '-=.3')
-    .from('#hero-socials',{ opacity: 0, y: 16, duration: .5, ease: 'power2.out' }, '-=.25')
-    .from('.scroll-hint', { opacity: 0, duration: .5 }, '-=.1');
+  if (hasGSAP) {
+    const heroTl = gsap.timeline({ delay: 0.2 });
+    heroTl
+      .to('#hero-content', { opacity: 1, duration: 0 })
+      .from('#hero-badge',  { y: -30, duration: .6, ease: 'back.out(1.7)' })
+      .from('#hero-title',  { y: 60, duration: .8, ease: 'power3.out' }, '-=.2')
+      .from('#hero-type',   { y: 30, duration: .6, ease: 'power2.out' }, '-=.4')
+      .from('#hero-sub',    { y: 20, duration: .6, ease: 'power2.out' }, '-=.35')
+      .from('#hero-cta',    { y: 20, duration: .5, ease: 'power2.out' }, '-=.3')
+      .from('#hero-socials',{ y: 16, duration: .5, ease: 'power2.out' }, '-=.25');
+  }
 
   /* ─── TYPED.JS ─── */
-  new Typed('#typed-target', {
-    strings: ['Angular Apps.', 'Scalable UIs.', 'ERP Systems.', 'LMS Platforms.', 'Clean Code.'],
-    typeSpeed: 65,
-    backSpeed: 40,
-    backDelay: 1800,
-    loop: true,
-    smartBackspace: true,
-  });
+  const typedStrings = ['Enterprise SaaS.', 'Angular Platforms.', 'LMS/SMS Products.', 'Multi-tenant UIs.', 'Clean Code.'];
+  if (hasTyped) {
+    new Typed('#typed-target', {
+      strings: typedStrings,
+      typeSpeed: 65,
+      backSpeed: 40,
+      backDelay: 1800,
+      loop: true,
+      smartBackspace: true,
+    });
+  } else {
+    document.getElementById('typed-target').textContent = typedStrings[0];
+  }
 
   /* ─── VANILLA TILT ─── */
-  VanillaTilt.init(document.querySelectorAll('.tilt-card'), {
-    max: 8, speed: 400, glare: true, 'max-glare': 0.12,
-    gyroscope: false, scale: 1.02,
-  });
+  if (hasTilt) {
+    VanillaTilt.init(document.querySelectorAll('.tilt-card'), {
+      max: 8, speed: 400, glare: true, 'max-glare': 0.12,
+      gyroscope: false, scale: 1.02,
+    });
+  }
 
   /* ─── COUNTER ANIMATION ─── */
   const counters = document.querySelectorAll('.counter');
@@ -173,26 +189,32 @@ window.addEventListener('load', () => {
   counters.forEach(c => counterObs.observe(c));
 
   /* ─── GSAP SCROLL: Section titles split reveal ─── */
-  document.querySelectorAll('.section-title').forEach(title => {
-    gsap.from(title, {
-      scrollTrigger: { trigger: title, start: 'top 88%' },
-      opacity: 0, y: 50, duration: .9, ease: 'power3.out',
+  if (hasGSAP) {
+    document.querySelectorAll('.section-title').forEach(title => {
+      gsap.from(title, {
+        scrollTrigger: { trigger: title, start: 'top 88%' },
+        opacity: 0, y: 50, duration: .9, ease: 'power3.out',
+      });
     });
-  });
+  }
 
   /* ─── GSAP SCROLL: Timeline line draw ─── */
-  gsap.from('.timeline::before', {
-    scrollTrigger: { trigger: '.timeline', start: 'top 80%', end: 'bottom 30%', scrub: 1 },
-    scaleY: 0, transformOrigin: 'top',
-  });
+  if (hasGSAP) {
+    gsap.from('.timeline::before', {
+      scrollTrigger: { trigger: '.timeline', start: 'top 80%', end: 'bottom 30%', scrub: 1 },
+      scaleY: 0, transformOrigin: 'top',
+    });
+  }
 
   /* ─── GSAP SCROLL: Skill icons spin on enter ─── */
-  document.querySelectorAll('.skill-icon').forEach(icon => {
-    gsap.from(icon, {
-      scrollTrigger: { trigger: icon, start: 'top 90%' },
-      rotation: -180, opacity: 0, duration: .8, ease: 'back.out(1.4)',
+  if (hasGSAP) {
+    document.querySelectorAll('.skill-icon').forEach(icon => {
+      gsap.from(icon, {
+        scrollTrigger: { trigger: icon, start: 'top 90%' },
+        rotation: -180, opacity: 0, duration: .8, ease: 'back.out(1.4)',
+      });
     });
-  });
+  }
 
   /* ─── MAGNETIC BUTTON EFFECT ─── */
   document.querySelectorAll('.magnetic').forEach(el => {
@@ -200,24 +222,26 @@ window.addEventListener('load', () => {
       const rect = el.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top  - rect.height / 2;
-      gsap.to(el, { x: x * 0.28, y: y * 0.28, duration: .3, ease: 'power2.out' });
+      if (hasGSAP) gsap.to(el, { x: x * 0.28, y: y * 0.28, duration: .3, ease: 'power2.out' });
     });
     el.addEventListener('mouseleave', () => {
-      gsap.to(el, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1, 0.4)' });
+      if (hasGSAP) gsap.to(el, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1, 0.4)' });
     });
   });
 
   /* ─── GSAP SCROLL: Project cards stagger ─── */
-  gsap.from('.project-card', {
-    scrollTrigger: { trigger: '.projects-grid', start: 'top 80%' },
-    opacity: 0, y: 60, stagger: 0.12, duration: .8, ease: 'power3.out',
-  });
+  if (hasGSAP) {
+    gsap.from('.project-card', {
+      scrollTrigger: { trigger: '.projects-grid', start: 'top 80%' },
+      opacity: 0, y: 60, stagger: 0.12, duration: .8, ease: 'power3.out',
+    });
+  }
 
   /* ─── CONTACT FORM ─── */
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = this.querySelector('button[type="submit"]');
-    gsap.to(btn, { scale: 0.95, duration: .1, yoyo: true, repeat: 1 });
+    if (hasGSAP) gsap.to(btn, { scale: 0.95, duration: .1, yoyo: true, repeat: 1 });
     btn.textContent = '✅ Message Sent!';
     btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
     btn.style.boxShadow = '0 8px 30px rgba(34,197,94,.4)';
@@ -233,12 +257,19 @@ window.addEventListener('load', () => {
 
   /* ─── INPUT LABEL FLOAT EFFECT ─── */
   document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
-    input.addEventListener('focus', () => gsap.to(input.previousElementSibling, { color: '#6c63ff', duration: .2 }));
-    input.addEventListener('blur', () => gsap.to(input.previousElementSibling, { color: '#8892a4', duration: .2 }));
+    input.addEventListener('focus', () => {
+      if (hasGSAP) gsap.to(input.previousElementSibling, { color: '#6c63ff', duration: .2 });
+      else input.previousElementSibling.style.color = '#6c63ff';
+    });
+    input.addEventListener('blur', () => {
+      if (hasGSAP) gsap.to(input.previousElementSibling, { color: '#8892a4', duration: .2 });
+      else input.previousElementSibling.style.color = '#8892a4';
+    });
   });
 
   /* ─── GSAP PARALLAX ORBS on mouse ─── */
   document.addEventListener('mousemove', e => {
+    if (!hasGSAP) return;
     const xf = (e.clientX / window.innerWidth - 0.5) * 30;
     const yf = (e.clientY / window.innerHeight - 0.5) * 30;
     gsap.to('.orb1', { x: xf * 1.2, y: yf * 1.2, duration: 1.5, ease: 'power1.out' });

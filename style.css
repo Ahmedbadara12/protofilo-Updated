@@ -161,7 +161,7 @@ body:has(a:hover) #cursor-follower, body:has(button:hover) #cursor-follower { wi
 .orb3 { animation-name: floatCenter; }
 @keyframes floatCenter { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.1)} }
 
-.hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 1.5rem; opacity: 0; }
+.hero-content { position: relative; z-index: 1; width: min(100%, 800px); max-width: 800px; padding: 0 1.5rem; opacity: 1; }
 .badge {
   display: inline-flex; align-items: center; gap: .5rem;
   background: rgba(108,99,255,.12); border: 1px solid rgba(108,99,255,.3);
@@ -174,7 +174,7 @@ body:has(a:hover) #cursor-follower, body:has(button:hover) #cursor-follower { wi
 #hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
 .typewriter-wrap { font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 500; color: var(--text-muted); margin-bottom: 1.5rem; min-height: 2.4rem; }
 #typed-target .typed-cursor { color: var(--accent); font-weight: 300; }
-.hero-sub { max-width: 580px; margin: 0 auto 2.5rem; color: var(--text-muted); font-size: 1.05rem; }
+.hero-sub { width: 100%; max-width: 580px; margin: 0 auto 2.5rem; color: var(--text-muted); font-size: 1.05rem; overflow-wrap: anywhere; }
 .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
 .hero-socials { display: flex; gap: 1rem; justify-content: center; }
 .social-icon {
@@ -266,6 +266,7 @@ body:has(a:hover) #cursor-follower, body:has(button:hover) #cursor-follower { wi
 .tl-list { color: var(--text-muted); font-size: .92rem; margin-bottom: 1.2rem; display: flex; flex-direction: column; gap: .55rem; padding-left: 1rem; }
 .tl-list li { position: relative; }
 .tl-list li::before { content: '▸'; position: absolute; left: -1rem; color: var(--accent); }
+.tl-list code { color: var(--text-main); background: rgba(108,99,255,.12); border: 1px solid rgba(108,99,255,.18); border-radius: 6px; padding: .05rem .35rem; font-family: 'Fira Code', monospace; font-size: .86em; }
 .tl-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
 
 /* ─── PROJECTS ─── */
@@ -391,7 +392,12 @@ footer { padding: 3rem 0; border-top: 1px solid var(--glass-border); text-align:
   .tl-header { flex-direction: column; align-items: flex-start; }
   .period { margin-top: 0.5rem; }
   
-  .hero-cta { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto 2.5rem; }
+  #hero { padding: 0 1rem; }
+  #hero h1 { font-size: 2.55rem; }
+  #hero h1 .grad { display: block; }
+  .hero-content { width: 100%; max-width: calc(100vw - 2rem); padding: 0; }
+  .hero-sub { max-width: 300px; font-size: .94rem; line-height: 1.65; }
+  .hero-cta { flex-direction: column; width: 100%; max-width: 280px; margin: 0 auto 2.5rem; }
   .btn-primary, .btn-outline { width: 100%; justify-content: center; }
   
   .skill-card, .project-card, .timeline-card { padding: 1.5rem; }
