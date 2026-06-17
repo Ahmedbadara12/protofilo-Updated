@@ -57,6 +57,22 @@ window.addEventListener('load', () => {
     hamburger.classList.remove('open');
   }));
 
+  /* ─── PROJECT FILTERS ─── */
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card[data-category]');
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      filterButtons.forEach(btn => btn.classList.toggle('active', btn === button));
+      projectCards.forEach(card => {
+        const categories = card.dataset.category.split(' ');
+        const isVisible = filter === 'all' || categories.includes(filter);
+        card.classList.toggle('is-hidden', !isVisible);
+      });
+      if (hasAOS) AOS.refresh();
+    });
+  });
+
   /* ─── ACTIVE NAV LINK ─── */
   const sections = document.querySelectorAll('section[id]');
   const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
@@ -145,7 +161,7 @@ window.addEventListener('load', () => {
   }
 
   /* ─── TYPED.JS ─── */
-  const typedStrings = ['Enterprise SaaS.', 'Angular Platforms.', 'LMS/SMS Products.', 'Multi-tenant UIs.', 'Clean Code.'];
+  const typedStrings = ['Enterprise SaaS.', 'Angular Platforms.', 'LMS/SMS Products.', 'Operational Dashboards.', 'Secure Multi-tenant UIs.'];
   if (hasTyped) {
     new Typed('#typed-target', {
       strings: typedStrings,
@@ -229,8 +245,16 @@ window.addEventListener('load', () => {
     });
   });
 
-  /* ─── GSAP SCROLL: Project cards stagger ─── */
+  /* ─── GSAP SCROLL: Card staggers ─── */
   if (hasGSAP) {
+    gsap.from('.impact-card', {
+      scrollTrigger: { trigger: '.impact-grid', start: 'top 82%' },
+      opacity: 0, y: 45, stagger: 0.1, duration: .75, ease: 'power3.out',
+    });
+    gsap.from('.architecture-card', {
+      scrollTrigger: { trigger: '.architecture-grid', start: 'top 82%' },
+      opacity: 0, y: 45, stagger: 0.1, duration: .75, ease: 'power3.out',
+    });
     gsap.from('.project-card', {
       scrollTrigger: { trigger: '.projects-grid', start: 'top 80%' },
       opacity: 0, y: 60, stagger: 0.12, duration: .8, ease: 'power3.out',
