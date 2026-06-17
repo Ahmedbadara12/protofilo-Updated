@@ -1,5 +1,6 @@
 /* ── WAIT FOR LIBS ── */
 window.addEventListener('load', () => {
+  const GOOGLE_SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwMMNugtAl0l9C5WSK1q0prvO_8f85gooRQcCKV4CuRfhqGZbXSqrgHMxfntHz1FIk/exec';
   const hasAOS = typeof AOS !== 'undefined';
   const hasGSAP = typeof gsap !== 'undefined';
   const hasTyped = typeof Typed !== 'undefined';
@@ -262,20 +263,56 @@ window.addEventListener('load', () => {
   }
 
   /* ─── CONTACT FORM ─── */
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    const name = this.querySelector('#name').value.trim();
+    const email = this.querySelector('#email').value.trim();
+    const subject = this.querySelector('#subject').value.trim() || 'Portfolio inquiry';
+    const message = this.querySelector('#message').value.trim();
+    const payload = {
+      name,
+      email,
+      subject,
+      message,
+      pageUrl: window.location.href,
+      userAgent: navigator.userAgent,
+    };
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      '',
+      message,
+    ].join('\n');
     const btn = this.querySelector('button[type="submit"]');
     if (hasGSAP) gsap.to(btn, { scale: 0.95, duration: .1, yoyo: true, repeat: 1 });
-    btn.textContent = '✅ Message Sent!';
+    btn.textContent = GOOGLE_SHEETS_ENDPOINT ? 'Saving Message...' : 'Opening Email...';
     btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
     btn.style.boxShadow = '0 8px 30px rgba(34,197,94,.4)';
     btn.disabled = true;
+
+    try {
+      if (GOOGLE_SHEETS_ENDPOINT) {
+        await fetch(GOOGLE_SHEETS_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload),
+        });
+        btn.textContent = 'Message Saved!';
+        this.reset();
+      } else {
+        window.location.href = `mailto:ahmed.badr.mostafaa@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      }
+    } catch (error) {
+      window.location.href = `mailto:ahmed.badr.mostafaa@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      btn.textContent = 'Opening Email...';
+    }
+
     setTimeout(() => {
       btn.textContent = 'Send Message 🚀';
       btn.style.background = '';
       btn.style.boxShadow = '';
       btn.disabled = false;
-      this.reset();
     }, 3500);
   });
 
